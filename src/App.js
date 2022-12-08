@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import axiosFetcher from "./Axios/axios";
+import Form from "./components/form/index";
 
-function App() {
+const App = () => {
+  const city = "delhi",
+  key = "7151e28e3c61ff6b136098be54f078ea";
+
+  axiosFetcher.get(`?q=${city}&cnt=5&appid=${key}`).then(res=>console.log(res.data)).catch(e=>console.log(e.message));
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Form/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

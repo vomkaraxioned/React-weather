@@ -1,15 +1,20 @@
-import axiosFetcher from "./Axios/axios";
+import { useState, useEffect } from "react";
 import Form from "./components/form/index";
+import searchCity from "./actions/search";
+import DisplayWeather from "./components/weatherDisplay/index";
 
 const App = () => {
-  const city = "delhi",
-  key = "7151e28e3c61ff6b136098be54f078ea";
 
-  axiosFetcher.get(`?q=${city}&cnt=5&appid=${key}`).then(res=>console.log(res.data)).catch(e=>console.log(e.message));
-  
-  return (
-    <div>
-      <Form/>
+  const [data,setData] = useState(null);
+
+  const formHandler = (name)=>searchCity(name,setData);
+
+  useEffect(()=>formHandler("thane"),[]);
+
+  return ( 
+    <div className="container">
+      <Form handler={formHandler} action="FIXME" name="city-search-form" styleName="search-form" />
+      <DisplayWeather weatherData={data}/>
     </div>
   )
 }

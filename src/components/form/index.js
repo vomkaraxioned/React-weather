@@ -1,17 +1,23 @@
-import {useRef} from "react";
-import Input from "./Input"
+import Input from "./Input";
+import { useState } from "react";
 
-const Form = ({handler})=>{
+const Form = ({handler,action,name,style})=>{
 
-  const cityName = useRef;
+  const [cityName,setCityName] = useState();
+
+  const submitHandler = (e)=>{
+    e.preventDefault();
+    handler(cityName)
+  };
 
   return(
-    <form>
+    <form  name={name} className={style} action={action} onSubmit={(e)=>submitHandler(e)}>
       <div>
-        <Input reference={cityName}/>
+        <Input type="text"  name="city-name" naming="city-name" cityHandler={setCityName}/>
+        {/* <Error/> */}
       </div>
       <div>
-        <Input reference={cityName}/>
+        <Input type="submit"  name="submit-btn" naming="btn btn-submit"/>
       </div>
     </form>
   );

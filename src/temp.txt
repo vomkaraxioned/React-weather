@@ -1,0 +1,8 @@
+<ul>
+          {
+            data.list.map((obj,i) => {
+              console.log(new Date(obj.dt_txt.split(" ")[0]).getDate())
+              return <Box date={obj.dt_txt.split(" ")[0]} temperature={obj.main.temp} description={obj.weather[0].description} key={i}/>
+            })
+          }
+        </ul>

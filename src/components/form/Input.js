@@ -1,9 +1,15 @@
-import React from 'react'
+import { useRef } from 'react';
 
-const Input = ({type,name,style,refer=null}) => {
-  return (
-    <input type="text" name="city-name" classNameref={value}/>
-  )
-}
+
+const Input = ({ type, name, naming,cityHandler }) => {
+
+  const value = useRef();
+
+  if (cityHandler != null) {
+    return <input type={type} name={name} className={naming} ref={value} onBlur={() => cityHandler(state => value.current.value)} />
+  } else {
+    return <input type={type} name={name} className={naming} ref={value} />
+  }
+};
 
 export default Input;

@@ -2,13 +2,14 @@
 import DayList from "./DayList";
 
 const LiIterator = ({data})=>{
-  let  arr = [],list=[],prevDate,i=1,compo;
+  let  arr = [],list=[],prevDate = null;
 
-  data.map((obj) => {
-    const currentDate = new Date(obj.dt_txt.split(" ")[0]).getDate();
-    prevDate = (prevDate == "")?currentDate:prevDate;
-
-    if(prevDate == currentDate) {
+  data.forEach((obj) => {
+    const date = obj.dt_txt.split(" ")[0],
+    currentDate = new Date(date).getDate();
+    prevDate = (prevDate === null)?currentDate:prevDate;
+    obj.dt_txt = date;
+    if(prevDate === currentDate ) {
       arr.push(obj);
     }else{
       list.push(arr);
@@ -19,11 +20,10 @@ const LiIterator = ({data})=>{
 
   });
 
-
   return (
     <>
     {
-      list.map(obj=>{})
+      list.map((obj,i)=> <li key={i}><DayList weatherList={obj}/></li>)
 
     }
     </>

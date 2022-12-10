@@ -1,17 +1,16 @@
 import Box from "../weatherDisplay/Box";
 
-const DayList = (props)=>{
+const DayList = (props) => {
   const data = props.weatherList;
 
-  console.log(data)
 
-  // data.map(obj=>{
-  //   obj.map(data=>{
-
-  //   });
-  // });
-
-  return <h1>hello</h1>
+  return (
+    <ul>
+      {
+        data.map((obj,i)=><Box date={obj.dt_txt} temperature={obj.main.temp} description={obj.weather[0].description} key={i}/>)
+      }
+    </ul>
+  );
 
 };
 

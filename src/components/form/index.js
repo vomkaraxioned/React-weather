@@ -14,7 +14,6 @@ const Form = ({handler,action,name,style})=>{
     <form  name={name} className={style} action={action} onSubmit={(e)=>submitHandler(e)}>
       <div>
         <Input type="text"  name="city-name" naming="city-name" cityHandler={setCityName}/>
-        {/* <Error/> */}
       </div>
       <div>
         <Input type="submit"  name="submit-btn" naming="btn btn-submit"/>

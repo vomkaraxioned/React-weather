@@ -1,4 +1,3 @@
-import Box from "./Box";
 import Title from "./Title";
 import LiIterator from "./LiIterator";
 
@@ -7,18 +6,18 @@ const DisplayWeather = (props) => {
 
   if (data != null && typeof (data) === "object") {
     return (
-      <>
+      <div className="wrapper">
         <Title name={data.city.name} />
-        <ul>
+        <ul className="weather-details">
           <LiIterator data={data.list} />
         </ul>
-      </>
+      </div>
     );
   }else {
     if(data != null) {
-      return <h2>{data}</h2>
+      return <div className="wrapper"><h2 className="error">{data}</h2></div>
     }else {
-      return <h2>loading wait....</h2>
+      return <div><h2 className="error">loading wait....</h2></div>
     }
   }
 };

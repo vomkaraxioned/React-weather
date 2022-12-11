@@ -1,7 +1,7 @@
 import Input from "./Input";
 import { useState } from "react";
 
-const Form = ({handler,action,name,style})=>{
+const Form = ({handler,action,name,styleName})=>{
 
   const [cityName,setCityName] = useState();
 
@@ -11,7 +11,8 @@ const Form = ({handler,action,name,style})=>{
   };
 
   return(
-    <form  name={name} className={style} action={action} onSubmit={(e)=>submitHandler(e)}>
+    <div className="wrapper">
+      <form  name={name} className={styleName} action={action} onSubmit={(e)=>submitHandler(e)}>
       <div>
         <Input type="text"  name="city-name" naming="city-name" cityHandler={setCityName}/>
       </div>
@@ -19,6 +20,7 @@ const Form = ({handler,action,name,style})=>{
         <Input type="submit"  name="submit-btn" naming="btn btn-submit"/>
       </div>
     </form>
+    </div>
   );
 
 };

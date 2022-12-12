@@ -1,4 +1,4 @@
-const Box = ({date,timeStamp,temperature,description}) => {
+const Box = ({ date, timeStamp, temperature, description }) => {
   return (
     <li className="weather">
       <span className="weather__date-stamp">{date}</span>

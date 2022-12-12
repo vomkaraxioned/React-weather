@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 
-const Input = ({ type, name, naming,cityHandler }) => {
+const Input = ({ type, name, naming, cityHandler }) => {
 
   const value = useRef();
 

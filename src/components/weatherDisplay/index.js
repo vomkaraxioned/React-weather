@@ -13,10 +13,10 @@ const DisplayWeather = (props) => {
         </ul>
       </div>
     );
-  }else {
-    if(data != null) {
+  } else {
+    if (data != null) {
       return <div className="wrapper"><h2 className="error">{data}</h2></div>
-    }else {
+    } else {
       return <div><h2 className="error">loading wait....</h2></div>
     }
   }

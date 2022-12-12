@@ -1,15 +1,14 @@
 import Title from "./Title";
 import LiIterator from "./LiIterator";
 
-const DisplayWeather = (props) => {
-  const data = props.weatherData;
+const DisplayWeather = ({ data, time }) => {
 
   if (data != null && typeof (data) === "object") {
     return (
       <div className="wrapper">
         <Title name={data.city.name} />
         <ul className="weather-details">
-          <LiIterator data={data.list} />
+          <LiIterator data={data.list} time={time} />
         </ul>
       </div>
     );

@@ -1,7 +1,7 @@
 
 import DayList from "./DayList";
 
-const LiIterator = ({ data }) => {
+const LiIterator = ({ data, time }) => {
   let arr = [], list = [], prevDate = null;
 
   data.forEach((obj) => {
@@ -24,8 +24,9 @@ const LiIterator = ({ data }) => {
   return (
     <>
       {
-        list.map((obj, i) => <li key={i}><DayList weatherList={obj} /></li>)
-
+        list.map((obj, i) => {
+          return <li key={i}><DayList data={obj} timeSelected={time} /></li>
+        })
       }
     </>
   );

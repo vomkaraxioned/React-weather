@@ -129,27 +129,27 @@ li {
 
 .weather-details {
   display: flex;
-  flex-direction: column;
-}
-
-.weather-details ul { 
-  display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.weather-details li:nth-child(odd) ul { background:#cdcdcd}
+.weather-details li {  
+  margin-right: 5%;
+  flex-basis: 45%;
+}
 
-.weather-details li:nth-child(even) ul { background:#eee}
+.weather-details li:first-child {  
+  margin-right: 0;
+  flex-basis: 100%;
+}
+
+.weather-details li:last-child { margin-right: 0}
 
 .weather {
   min-height: 150px;
   padding: 15px 0;
-  border: 1px solid #fff;
+  border: 1px solid #454545;
   margin:20px 2% 20px 0;
   display: flex;
-  flex-basis: 40%;
   flex-direction: column;
   justify-content: center;
 }
@@ -165,9 +165,32 @@ li {
   text-transform: capitalize;
 }
 
-.error { 
-  padding: 20px 0;
+.error,.weather-error { 
+  padding: 40px 0;
   color: #454545;
   font-size: 24px;
   text-align: center;
+}
+
+.error {   padding: 80px 0}
+
+/*tabs styling start here*/
+
+.time-selector {
+  display: flex;
+  justify-content: center;
+}
+
+.time-selector li {
+  padding: 5px 2%;
+  margin-right: 2%;
+  background-color: #c1c1c1;
+  cursor: pointer;
+}
+
+.time-selector li:last-child { margin-right: 0}
+
+.active {
+  background-color: #454545;
+  color: #fff;
 }
